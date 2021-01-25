@@ -28,11 +28,16 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+    counter1 decleared the count inside the function, that can only access from that function; 
+    counter2 decleared count outside the function can access from other function too.
   
   2. Which of the two uses a closure? How can you tell?
+    Closure can make function have local scope.
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     When we don't need to access count outside the function, or when we want count to defalt to 0 everytime when we use function, we should use counter1.
+     When we need to access count outside the function, or when we want count always updates new value after we use that function, then we should use counter2.
 */
 
 // counter1 code
@@ -62,8 +67,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+  Math.floor(Math.random() * 3)
 }
 
 
