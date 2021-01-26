@@ -87,16 +87,13 @@ Use the finalScore function below to do the following:
 */ 
 
 function finalScore(inningCB, num){
-  const game = {Home: 0, Away: 0};
-  
+  const scoreTotal = {Home: 0, Away: 0};
   for (let i = 0; i < num; i++){
-    game.Home = game.Home + inningCB();
-    game.Away = game.Away + inningCB();
+    scoreTotal.Home = scoreTotal.Home + inningCB();
+    scoreTotal.Away = scoreTotal.Away + inningCB();
   }
-
-  return game;
+  return scoreTotal;
 }
-
 console.log(finalScore(inning, 9));
 
 
@@ -155,13 +152,26 @@ Use the scoreboard function below to do the following:
   */
 
 function scoreboard(scoreCB, inningCB, num) {
-  const final = [];
-  for (i =0; i<num; i++){
-    final.push = getInningScore(inningCB);
+  let finalscore = {Home: 0, Away: 0};
+  
+  function game(){
+    for (var i =0; i<num; i++){
+      let gamescore = scoreCB(inningCB);
+      finalscore.Home = finalscore.Home + gamescore.Home;
+      finalscore.Away = finalscore.Away + gamescore.Away; 
+      console.log(`Inning ${i+1}: Away ${gamescore.Away}- Home ${gamescore.Home}`);
+    }
   }
-  return final;
+  game();
+  
+  if (finalScore.Home == finalScore.Away){
+    return console.log(`This game will require extra innings: Away ${finalscore.Away} - Home ${finalscore.Home}`)
+  }
+  else{
+    return console.log(`Final Score: Away ${finalscore.Away} - Home ${finalscore.Home}`)
+  } 
 }
-console.log()
+scoreboard(getInningScore,inning, 9);
 
 
 
